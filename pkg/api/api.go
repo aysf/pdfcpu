@@ -128,6 +128,7 @@ func readAndValidate(rs io.ReadSeeker, conf *model.Configuration, from1 time.Tim
 	from2 := time.Now()
 
 	if err = validate.XRefTable(ctx.XRefTable); err != nil {
+		println("delme A - 6 - 16 - 6")
 		return nil, 0, 0, err
 	}
 

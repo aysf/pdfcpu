@@ -33,13 +33,13 @@ import (
 
 // XRefTable validates a PDF cross reference table obeying the validation mode.
 func XRefTable(xRefTable *model.XRefTable) error {
-
 	log.Info.Println("validating")
 	log.Validate.Println("*** validateXRefTable begin ***")
 
 	// Validate root object(aka the document catalog) and page tree.
 	err := validateRootObject(xRefTable)
 	if err != nil {
+		println("delme A - 6 - 16 - 6 - 2")
 		return err
 	}
 
@@ -1019,6 +1019,7 @@ func validateRootObject(xRefTable *model.XRefTable) error {
 	}
 
 	if err == nil {
+		println("delme A - 6 - 16 - 6 - 2 - 6")
 		log.Validate.Println("*** validateRootObject end ***")
 	}
 

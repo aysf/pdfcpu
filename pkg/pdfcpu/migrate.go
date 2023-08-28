@@ -17,6 +17,8 @@ limitations under the License.
 package pdfcpu
 
 import (
+	"errors"
+
 	"github.com/pdfcpu/pdfcpu/pkg/pdfcpu/model"
 	"github.com/pdfcpu/pdfcpu/pkg/pdfcpu/types"
 )
@@ -107,7 +109,12 @@ func migrateAnnots(o types.Object, pageIndRef types.IndirectRef, ctxSrc, ctxDest
 			return nil, err
 		}
 		arr[i] = o
-		d := o1.(types.Dict)
+
+		d, ok := o1.(types.Dict)
+		if !ok {
+			return nil, errors.New("pdfcpu: types.Object is types.StreamDict, not types.Dict")
+		}
+
 		for k, v := range d {
 			if k == "P" {
 				d["P"] = pageIndRef

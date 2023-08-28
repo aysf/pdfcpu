@@ -592,6 +592,7 @@ func validateNameEntry(xRefTable *model.XRefTable, d types.Dict, dictName, entry
 
 	o, err := d.Entry(dictName, entryName, required)
 	if err != nil || o == nil {
+		println("delme A - 6 - 16 - 6 - 2 - 6 - 4 - 2 - 2 - 1 - 1 - 2")
 		return nil, err
 	}
 

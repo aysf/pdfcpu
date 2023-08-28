@@ -105,9 +105,9 @@ func Merge(destFile string, inFiles []string, w io.Writer, conf *model.Configura
 	defer f.Close()
 
 	log.CLI.Println("merging into " + destFile)
-
 	ctxDest, _, _, err := readAndValidate(f, conf, time.Now())
 	if err != nil {
+		println("delme A - 6 - 16")
 		return err
 	}
 
@@ -126,7 +126,6 @@ func Merge(destFile string, inFiles []string, w io.Writer, conf *model.Configura
 				return err
 			}
 			defer f.Close()
-
 			log.CLI.Println(fName)
 			if err = appendTo(f, filepath.Base(fName), ctxDest); err != nil {
 				return err
@@ -161,6 +160,7 @@ func MergeCreateFile(inFiles []string, outFile string, conf *model.Configuration
 	}()
 
 	log.CLI.Printf("writing %s...\n", outFile)
+	println("delme A - 6")
 	return Merge("", inFiles, f, conf)
 }
 

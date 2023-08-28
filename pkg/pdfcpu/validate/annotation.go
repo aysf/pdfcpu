@@ -1422,6 +1422,9 @@ func validateAnnotationDictGeneralPart1(xRefTable *model.XRefTable, d types.Dict
 	// Subtype, required, name
 	subtype, err := validateNameEntry(xRefTable, d, dictName, "Subtype", REQUIRED, model.V10, nil)
 	if err != nil {
+		println("delme A - 6 - 16 - 6 - 2 - 6 - 4 - 2 - 2 - 1 - 1")
+		println("dictName:", dictName)
+
 		return nil, err
 	}
 
@@ -1502,6 +1505,8 @@ func validateAnnotationDictGeneralPart2(xRefTable *model.XRefTable, d types.Dict
 func validateAnnotationDictGeneral(xRefTable *model.XRefTable, d types.Dict, dictName string) (*types.Name, error) {
 	subType, err := validateAnnotationDictGeneralPart1(xRefTable, d, dictName)
 	if err != nil {
+		println("delme A - 6 - 16 - 6 - 2 - 6 - 4 - 2 - 2 - 1")
+
 		return nil, err
 	}
 
@@ -1589,6 +1594,7 @@ func validateAnnotationDict(xRefTable *model.XRefTable, d types.Dict) (isTrapNet
 
 	subtype, err := validateAnnotationDictGeneral(xRefTable, d, dictName)
 	if err != nil {
+		println("delme A - 6 - 16 - 6 - 2 - 6 - 4 - 2 - 2")
 		return false, err
 	}
 
@@ -1652,6 +1658,7 @@ func validatePageAnnotations(xRefTable *model.XRefTable, d types.Dict) error {
 
 		hasTrapNet, err = validateAnnotationDict(xRefTable, annotsDict)
 		if err != nil {
+			println("delme A - 6 - 16 - 6 - 2 - 6 - 4 - 2")
 			return err
 		}
 
@@ -1726,6 +1733,7 @@ func validatePagesAnnotations(xRefTable *model.XRefTable, d types.Dict, curPage 
 			xRefTable.CurPage = curPage
 			err = validatePageAnnotations(xRefTable, d)
 			if err != nil {
+				println("delme A - 6 - 16 - 6 - 2 - 6 - 4")
 				return curPage, err
 			}
 

@@ -133,6 +133,8 @@ func (d Dict) Entry(dictName, key string, required bool) (Object, error) {
 	obj, found := d.Find(key)
 	if !found || obj == nil {
 		if required {
+			println("delme A - 6 - 16 - 6 - 2 - 6 - 4 - 2 - 2 - 1 - 1 - 2 - 1")
+
 			return nil, errors.Errorf("dict=%s required entry=%s missing", dictName, key)
 		}
 		//log.Trace.Printf("dict=%s entry %s is nil\n", dictName, key)
